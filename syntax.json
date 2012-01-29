@@ -1,0 +1,77 @@
+{ "name":    "Markdown"
+, "url":     "https://github.com/stratuseditor/Markdown.sebundle"
+, "author":  "sentientwaffle"
+, "version": "0.0.1"
+
+, "require":   ["HTML"]
+, "fileTypes": ["\\.md", "\\.markdown"]
+
+, "preferences":
+  { "tab":   "  "
+  , "pairs": {"`": "`"}
+  }
+
+, "syntax":
+  { "$":
+    [ { "token": "markup.bold"
+      , "match": "[*][*].*[*][*]"
+      }
+    , { "token": "markup.bold"
+      , "match": "__.*__"
+      }
+    
+    , { "token": "markup.italic"
+      , "begin": "_"
+      , "end":   "_(?!\\w)"
+      }
+    , { "token": "markup.italic"
+      , "match": "[*].*[*]"
+      }
+    
+    , { "token": "markup.code"
+      , "begin": "[`]{3}"
+      , "end":   "[`]{3}"
+      }
+    , { "token": "markup.code"
+      , "match": "`[^`]*`"
+      }
+    , { "token": "markup.code"
+      , "match": "\n\\s{4,}[^+*-\\s].*\n"
+      }
+    
+    , { "token": "markup.list.ol"
+      , "match": "\n\\s*[*+-] "
+      }
+    , { "token": "markup.list.ul"
+      , "match": "\n\\s*[0-9]+\\. "
+      }
+    
+    , "Links"
+    , { "token": "markup.link"
+      , "match": "\\[.+?\\]\\[.+?\\]"
+      }
+    , { "token": "markup.link"
+      , "match": "\\[.+?\\]\\(.+?\\)"
+      }
+    
+    , { "token": "entity.tag"
+      , "begin": "(?=[<])\\w"
+      , "end":   "(?=[>])"
+      , "include": "HTML"
+      }
+    
+    , { "token": "markup.header"
+      , "begin": "\n#"
+      , "end":   "\n"
+      }
+    
+    , { "token": "markup.header"
+      , "match": "\n[- ]+\n"
+      }
+    , { "token": "markup.header"
+      , "match": "\n[= ]+\n"
+      }
+    
+    ]
+  }
+}
