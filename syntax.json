@@ -20,12 +20,13 @@
       , "match": "__.*__"
       }
     
-    , { "token": "markup.italic"
-      , "begin": "_"
-      , "end":   "_(?!\\w)"
+    , { "token":  "markup.italic"
+      , "match":  "_.*_(?=\\b)"
+      , "behind": "\\s"
       }
-    , { "token": "markup.italic"
-      , "match": "[*].*[*]"
+    , { "token":  "markup.italic"
+      , "match":  "[*].*[*]"
+      , "behind": "\\s"
       }
     
     , { "token": "markup.code"
