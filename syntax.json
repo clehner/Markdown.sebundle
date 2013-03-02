@@ -37,7 +37,7 @@
       , "match": "`[^`]*`"
       }
     , { "token": "markup.code"
-      , "match": "\n\\s{4,}[^+*-\\s].*\n"
+      , "match": "\n\\s{4,}[^-+*\\s].*\n"
       }
     
     , { "token": "markup.list.ol"
